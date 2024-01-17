@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appCulinaryLocation',
+    'bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,13 @@ WSGI_APPLICATION = 'CulinaryLocation.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'culinarylocationdb',
+        'USER': 'root',
+        'PASSWORD': 'Vuphat12345',
+        'HOST': ''
+
+
     }
 }
 
@@ -123,3 +129,5 @@ MEDIA_ROOT = '%s/appCulinaryLocation/static'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'appCulinaryLocation.User'
