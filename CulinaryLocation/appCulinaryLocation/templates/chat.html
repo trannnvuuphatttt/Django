@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Botchat</title>
+</head>
+<body>
+    <h1>Botchat</h1>
+    <p>Bạn là: {{ user.username }}</p>
+    <ul>
+        {% for message in messages %}
+            <li>{{ message.message }}</li>
+        {% endfor %}
+    </ul>
+    <input type="text" id="message" placeholder="Nhập tin nhắn">
+    <button id="send">Gửi</button>
+    <script>
+        const messageInput = document.getElementById("message");
+        const sendButton = document.getElementById("send");
+
+        sendButton.addEventListener("click", () => {
+            const message = messageInput.value;
+            const botchat = new BotChat(window.user);
+            botchat.send_message(message);
+            messageInput.value = "";
+        });
+    </script>
+</body>
+</html>

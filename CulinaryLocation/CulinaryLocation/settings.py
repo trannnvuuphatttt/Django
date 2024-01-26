@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import firebase_admin
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appCulinaryLocation',
-    'bootstrap5'
+    'bootstrap5',
+    'django_firebase'
 ]
 
 MIDDLEWARE = [
@@ -123,7 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-MEDIA_ROOT = '%s/appCulinaryLocation/static'
+MEDIA_ROOT = '%s/appCulinaryLocation/static' %BASE_DIR
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -131,3 +133,13 @@ MEDIA_ROOT = '%s/appCulinaryLocation/static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'appCulinaryLocation.User'
+
+FIREBASE_CONFIG = {
+  'apiKey': "AIzaSyBfYdtWpo46kpv5_P259iG1bsfsVvWSHeE",
+  'authDomain': "culinary-location-new.firebaseapp.com",
+  'projectId': "culinary-location-new",
+  'storageBucket': "culinary-location-new.appspot.com",
+  'messagingSenderId': "234892339175",
+  'appId': "1:234892339175:web:e26ec6e088442e65e4bf42",
+  'measurementId': "G-GTRY55R75P"
+}
