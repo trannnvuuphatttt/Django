@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appCulinaryLocation',
-    'bootstrap5',
-    'django_firebase'
+    'django_bootstrap5',
+    'django_firebase',
+    'ckeditor',
+    'ckeditor_uploader',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +129,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_ROOT = '%s/appCulinaryLocation/static' %BASE_DIR
+CKEDITOR_UPLOAD_PATH = 'disk/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

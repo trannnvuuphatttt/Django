@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -86,14 +87,14 @@ class Comment(models.Model):
 
 class Menu(models.Model):
     dateCreated = models.DateTimeField(auto_now_add=True)
-    tieu_de = models.CharField(max_length=50, null=True, blank=True)
+    title = models.CharField(max_length=50, null=True, blank=True)
     dish_id = models.ManyToManyField('Dish', through='MenuDetails', related_name='menus')
     status = models.BooleanField(default=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    image= models.ImageField(upload_to='', null=True, blank=True)
+    image = models.ImageField(upload_to='', null=True, blank=True)
 
     def __str__(self):
-        return self.tieu_de
+        return self.title
 
 
 class MenuDetails(models.Model):
@@ -148,7 +149,7 @@ class BillDetails(models.Model):
 class Dish(models.Model):
     name = models.CharField(max_length=50, null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
-    describe= models.CharField(max_length=50, null=True, blank=True)
+    describe = models.CharField(max_length=50, null=True, blank=True)
     food_id = models.ForeignKey(Food, on_delete=models.CASCADE, null=True, blank=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     status = models.BooleanField(default=True)
