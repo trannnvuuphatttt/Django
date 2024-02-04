@@ -1,3 +1,4 @@
+from django_google_maps import fields as map_field
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -207,7 +208,7 @@ class BotChat(object):
         self.user = user
 
     def get_user_name(self):
-        return self.user.username
+        return self.user.usernamepp
 
     def get_user_id(self):
         return self.user.id
@@ -221,3 +222,5 @@ class BotChat(object):
     def receive_message(self):
         messages = firestore.collection("messages").where("sender_id", "!=", self.user.id).get()
         return [message.to_dict() for message in messages]
+
+
