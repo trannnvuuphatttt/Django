@@ -53,6 +53,7 @@ class DishAdmin(admin.ModelAdmin):
             "<img src='/static/{ìg_url}' alt='{arl}' />".format(img_url=dish.avatar.name, arl=dish.subject))
 
 
+
 # Register your models here.
 
 admin_site.register(User)
